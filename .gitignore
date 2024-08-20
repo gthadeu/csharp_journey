@@ -1,0 +1,10 @@
+# Pastas e arquivos do Visual Studio
+.vs/
+*.user
+*.suo
+
+# Arquivos de build e dependências
+bin/
+obj/
+
+# Outras pastas que deseja ignorar
