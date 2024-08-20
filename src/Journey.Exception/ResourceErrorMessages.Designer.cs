@@ -86,5 +86,14 @@ namespace Journey.Exception {
                 return ResourceManager.GetString("TRIP_END_DATE_MUST_BE_LATER_THAN_START_DATE", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trip not found.
+        /// </summary>
+        public static string TRIP_NOT_FOUND {
+            get {
+                return ResourceManager.GetString("TRIP_NOT_FOUND", resourceCulture);
+            }
+        }
     }
 }
