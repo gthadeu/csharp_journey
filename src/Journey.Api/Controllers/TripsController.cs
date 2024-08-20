@@ -1,4 +1,5 @@
-﻿using Journey.Application.UseCases.Trips.Register;
+﻿using Journey.Application.UseCases.Trips.GetAll;
+using Journey.Application.UseCases.Trips.Register;
 using Journey.Communication.Requests;
 using Journey.Exception.ExceptionsBase;
 using Microsoft.AspNetCore.Mvc;
@@ -16,9 +17,9 @@ namespace Journey.Api.Controllers
             {
                 var useCase = new RegisterTripUseCase();
 
-                useCase.Execute(request);
+                var response = useCase.Execute(request);
 
-                return Created();
+                return Created(string.Empty, response);
             }
             catch (JourneyException ex)
             {
@@ -28,6 +29,16 @@ namespace Journey.Api.Controllers
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, "Erro desconhecido");
             }
+        }
+
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            var useCase = new GetAllTripsUseCase();
+
+            var result = useCase.Execute();
+
+            return Ok(result);
         }
     }
 }
