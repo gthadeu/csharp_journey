@@ -17,7 +17,6 @@ namespace Journey.Application.Activities.Register
 
             var trip = dbContext
                 .Trips
-                .Include(trip => trip.Activities)
                 .FirstOrDefault(trip => trip.Id == tripId);
 
             Validate(trip, request);
@@ -26,11 +25,10 @@ namespace Journey.Application.Activities.Register
             {
                 Name = request.Name,
                 Date = request.Date,
+                TripId = tripId,
             };
 
-            trip!.Activities.Add(entity);
-
-            dbContext.Trips.Update(trip);
+            dbContext.Activities.Add(entity);
             dbContext.SaveChanges();
 
             return new ResponseActivityJson
