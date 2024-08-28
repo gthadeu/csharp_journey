@@ -22,4 +22,9 @@
     <ProjectReference Include="..\Journey.Infrastructure\Journey.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Activities\Complete\" />
+    <Folder Include="Activities\Delete\" />
+  </ItemGroup>
+
 </Project>
